@@ -1,17 +1,17 @@
 # Model 1 Linear Regression
 
-#import dataset from sklearn 
+#Load the iris dataset
 from sklearn.datasets import load_iris
 data = load_iris()
 
 X = data.data
 y = data.target
 
-# Split your data with train test split
+# Split your data with train test split (2/3 for Train, 1/3 for Test)
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
 
-#Create your estimater (model) with Linear Regression
+#Create your Linear Regression object (or model, estimater)
 from sklearn.linear_model import LinearRegression
 lr = LinearRegression()
 lr.fit(X_train, y_train)
