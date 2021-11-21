@@ -20,7 +20,7 @@ lr.fit(X_train, y_train)
 y_hat = lr.predict(X_test)
 print(y_hat[0:5])
 
-# Calculate the R^2
+# Calculate the R^2 (R square = The coefficient of determination: 1 is perfect prediction)
 from sklearn.metrics import r2_score
 lr_r2 = r2_score(y_test, y_hatln)
 print('R^2 Score : ',lr_r2)
