@@ -1,0 +1,32 @@
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
+
+#Load the iris dataset
+data = load_iris()
+
+X = data.data
+y = data.target
+
+# Split your data with train test split (2/3 for Train, 1/3 for Test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
+
+#Create your Polynomial object
+poly_reg = PolynomialFeatures(degree=2)
+
+#Transform your data to polymonial format
+x_poly = poly_reg.fit_transform(X_train)
+
+#Create your Linear object and fit to the model
+lin_reg = LinearRegression()
+lin_reg.fit(x_poly, y_train)
+
+#Predictions
+poly_pred = lin_reg.predict(poly_reg.fit_transform(X_test))
+print(poly_pred[:5])
+
+# Calculate the R^2 Score ( 1 is perfect prediction)
+poly_r2 = r2_score(y_test, poly_pred)
+print('R Square : ', poly_r2)
