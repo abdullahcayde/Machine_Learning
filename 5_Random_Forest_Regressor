@@ -1,0 +1,30 @@
+# Model 5 Random Forest Regressor
+
+from sklearn.datasets import load_iris
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import r2_score
+
+#Load the iris dataset
+iris = load_iris()
+
+X = iris.data
+y = iris.target
+
+# Split your data with train test split (2/3 for Train, 1/3 for Test)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
+
+#Create your Random Forest Regression object 
+rf = RandomForestRegressor(random_state=0)
+
+#Fit the train set to your Random Forest Object
+rf.fit(X_train, y_train)
+
+#Prediction
+y_pred = rf.predict(X_test)
+print(y_pred[:5])
+
+# Calculate the R^2 (R square = 1 is perfect prediction)
+rf_r2 = r2_score(y_test, y_pred)
+print('R^2 Score : ', rf_r2)
+
