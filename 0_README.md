@@ -9,3 +9,5 @@ In this repository you will find a few examples of Machine Learning.
 3-SVR (Support Vector Regression)
 
 4-Decision Tree Regressor
+
+5_Random Forest Regressor
