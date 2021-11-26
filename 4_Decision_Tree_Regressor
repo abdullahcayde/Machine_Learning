@@ -6,22 +6,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
 #Load the iris dataset
-data = load_iris()
+iris = load_iris()
 
-X = data.data
-y = data.target
+X = iris.data
+y = iris.target
 
 # Split your data with train test split (2/3 for Train, 1/3 for Test)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
 
 #Create your Linear Regression object (or model, estimater)
-clf = DecisionTreeRegressor(random_state=0)
+dtr = DecisionTreeRegressor(random_state=0)
 
 #Fit the train set to your Decission Tree Object
-clf.fit(X_train, y_train)
+dtr.fit(X_train, y_train)
 
 #Prediction
-y_pred = clf.predict(X_test)
+y_pred = dtr.predict(X_test)
 print(y_pred[:5])
 
 # Calculate the R^2 (R square = 1 is perfect prediction)
