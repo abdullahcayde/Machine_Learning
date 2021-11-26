@@ -2,7 +2,7 @@
 
 In this repository you will find a few examples of Machine Learning.
 
-1- Linear Regression
+1-Linear Regression
 
 2-Polynomial Regression
 
@@ -10,4 +10,4 @@ In this repository you will find a few examples of Machine Learning.
 
 4-Decision Tree Regressor
 
-5_Random Forest Regressor
+5-Random Forest Regressor
