@@ -25,3 +25,4 @@ print(y_pred[0:5])
 # Calculate the R^2 (The coefficient of determination = 1 is perfect prediction)
 lr_r2 = r2_score(y_test, y_pred)
 print('R^2 Score : ',lr_r2)
+
