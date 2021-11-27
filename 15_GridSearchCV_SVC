@@ -1,0 +1,39 @@
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.model_selection import GridSearchCV
+
+#import dataset from sklearn 
+data = load_iris()
+
+X = data.data
+y = data.target
+
+# Split your data with train test split
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=0)
+
+
+# Create your estimater 
+svc = SVC()
+svc.fit(x_train, y_train)
+
+# Import GridSearch and give your paramaters as your estimater get
+p = [{'C': [1,10,100,1000], 'kernel': ['linear','poly', 'rbf'], 'gamma': [1,0.5,0.1,0.01,0.01] } ]
+
+#You can change your scoring as which you want to compare (r2, precision, recall ...) 
+search = GridSearchCV(estimator=svc, 
+                 param_grid=p,
+                 scoring= 'accuracy',  
+                 cv = 10,
+                 n_jobs = -1)
+
+grid_search = search.fit(x_train, y_train)
+
+#Get the best score and best parameters 
+best_score = grid_search.best_score_
+best_parameter = grid_search.best_params_
+
+print('Best Score : ', best_score)
+print(best_parameter)
+
+# You can change the parameters after getting best score and best parameters
